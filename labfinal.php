@@ -2,7 +2,7 @@
     if($_SERVER["REQUSET METHOD"]=="POST"){
 		$username=$_POST["username"];
 		$password=$_POST["password"];
-		if($username  =="Rozina"&& $password=="1234"){
+		if($username  =="Tanvir"&& $password=="1234"){
 			setcookie("username",$username,time()+120);
 			    header("Location: Dashboard.php");
 		}
@@ -29,7 +29,7 @@
     if($_SERVER["REQUSET METHOD"]=="POST"){
 		$username=$_POST["username"];
 		$password=$_POST["password"];
-		if($username  =="Rozina"&& $password=="1234"){
+		if($username  =="Tanvir"&& $password=="1234"){
 			setcookie("username",$username,time()+120);
 			    header("Location: Dashboard.php");
 		}
