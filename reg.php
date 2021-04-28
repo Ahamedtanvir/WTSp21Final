@@ -1,5 +1,6 @@
 <?php
    require_once "Controle/controle.php";
+   require_once "DB/db.php";
 
  
 ?>
@@ -27,8 +28,8 @@
 
 					<tr>
 						<td><span>Emp Name</span></td> 
-						<td>: <input type="name" value="<?php echo $name;?>" name="name">
-							
+						<td>: <input type="name" onfocusout ="checkUsername(this)" value="<?php echo $name;?>" name="name">
+							<span id="err_name"></span>   
 						<span><?php echo $err_name;?></span></td>
 						
 					</tr>
@@ -64,5 +65,26 @@
 		</fieldset>
 	</body>
 </html>
+<script>
+function check(control){
+    var username = control.value;
+    var xhttp= new XMLHttpRequest();
+    xhttp.onreadystatechange= function(){
+        if(this.readyState==4 && this.status == 200){
+            var rsp= this.responseText;
+            if(rsp == "true"){
+                document.getElementById("err_name").innerHTML= "Valid";
+                document.getElementById("err_name").style="color:Green";
+            }
+            else{
+                document.getElementById("err_name").innerHTML= "Not Valid";
+                document.getElementById("err_name").style="color:red";
+            }
+        }
+    }
+    xhttp.open("GET","check.php?Emp_name="+username,true);
+    xhttp.send();
+}
+</script>
 
 
